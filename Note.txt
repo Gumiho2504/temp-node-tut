@@ -1,0 +1,1 @@
+to in stall nodemod as globle : npm install -g nodemon
