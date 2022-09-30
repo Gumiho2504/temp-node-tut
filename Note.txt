@@ -27,3 +27,7 @@ to in stall nodemod as globle : npm install -g nodemon
 // console.log("Gumiho handsome boy")
 // const Module = require('module')
 // console.log(Module.builtinModules)
+////
+///////////////////////////////
+comment npm nodemon -D ???????for install nodemon to the project
+npm run dev for run project 

@@ -6,7 +6,7 @@
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
-  "author": "",
+  "author": "Mrr Metrey",
   "license": "ISC",
   "keywords": [],
   "description": "",

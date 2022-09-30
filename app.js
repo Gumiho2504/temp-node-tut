@@ -1,22 +1,23 @@
-const http = require('http');
-const server = http.createServer((req,res)=>{
-    if(req.url === '/'){
-        res.end('Home page')
-    }
-    if(req.url === '/about'){
-        //Blocking Code
-        for(let i = 0; i< 1000; i++){
-            for(let j = 0; j< 1000; j++){
-                console.log(`${i} ${j}`)
-            }
-        }
-        res.end('About page')
-    }
-    res.end('Error page')
-
-})
-server.listen(8080,()=>{
-    console.log('Sever is listening on port 8080.....')
-})
-
-
+// console.log('hello')
+// const{ createReadStream} = require('fs');
+// const { result } = require('lodash');
+// const stream = createReadStream('./content/big.txt',{highWaterMark: 90000,encoding:'utf8'});
+// stream.on('data', (result)=>{
+//     console.log(result)
+// })
+// stream.on('error',(err) => console.log(err))
+var http = require('http')
+var fs = require('fs')
+http
+    .createServer(function (req,res){
+        const text = fs.readFileSync('./content/big.txt', 'utf8')
+        res.end(text)
+        // const fileStream = fs.createReadStream('./content/big.txt', 'utf8');
+        // fileStream.on('open',()=>{
+        //     fileStream.pipe()
+        // })
+        // fileStream.on('error', (err)=>{
+        //     res.end(err)
+        // })
+    })
+    .listen(2504)
