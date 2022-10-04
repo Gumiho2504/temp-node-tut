@@ -31,3 +31,19 @@ to in stall nodemod as globle : npm install -g nodemon
 ///////////////////////////////
 comment npm nodemon -D ???????for install nodemon to the project
 npm run dev for run project 
+
+#####################
+install Express  run cmm = npm install express --save
+##################
+http method get set post put delete all use lesten
+ - Get : get all oders // Read Data  (www.store.com/api/order)
+ - Post : place an oder (send data) // Insert Data (www.store.com/api/order)
+ - Get : get single order (path param) /(www.store.com/api/orders/:id)
+ - Put : Update Data /update specific order (params +_send data) /(www.store.com/api/orders/:id)
+ - Delete : Delete Data / date order (path param) //(www.store.com/api/orders/:id)
+ ######################################################
+ #####################################################
+ sample ApI search : "hacker news algolia api"
+ #######################################################
+ ######################################################
+ npm morgan retrun time that sever start or request

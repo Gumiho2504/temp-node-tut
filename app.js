@@ -1,23 +1,26 @@
-// console.log('hello')
-// const{ createReadStream} = require('fs');
-// const { result } = require('lodash');
-// const stream = createReadStream('./content/big.txt',{highWaterMark: 90000,encoding:'utf8'});
-// stream.on('data', (result)=>{
-//     console.log(result)
-// })
-// stream.on('error',(err) => console.log(err))
-var http = require('http')
-var fs = require('fs')
-http
-    .createServer(function (req,res){
-        const text = fs.readFileSync('./content/big.txt', 'utf8')
-        res.end(text)
-        // const fileStream = fs.createReadStream('./content/big.txt', 'utf8');
-        // fileStream.on('open',()=>{
-        //     fileStream.pipe()
-        // })
-        // fileStream.on('error', (err)=>{
-        //     res.end(err)
-        // })
-    })
-    .listen(2504)
+const express = require ('express');
+const app =  express()
+const logger = require('./logger');
+const authorize = require('./authorize');
+const morgan = require('morgan');
+// 1 . use vs route
+// 2 . option - own / express /. third party
+app.use(morgan('tiny'))
+//app.use([logger,authorize])
+app.get('/', (req,res)=> {
+  res.send('Home ')
+})
+
+app.get('/about',(req,res)=>{
+    res.send('About')
+})
+app.get('/api/products',(req,res)=>{
+    res.send('Products')
+})
+app.get('/api/items',(req,res)=>{
+    console.log(req.user)
+    res.send('Items')
+})
+app.listen(5000,()=>{
+    console.log('Sever is listening on port 5000.....')
+})
