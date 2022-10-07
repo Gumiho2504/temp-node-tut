@@ -47,3 +47,14 @@ http method get set post put delete all use lesten
  #######################################################
  ######################################################
  npm morgan retrun time that sever start or request
+ ########################################################
+#########################################################
+##################################################33####
+Method GET  
+############
+Method POST :
+ we will install one more tool which is going to be crucial in 
+ Express server deverlopment which is just going to allow us to 
+ test everything much faster but sine the POST : use static data meaning 
+ #############################
+ PostMan

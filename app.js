@@ -1,26 +1,20 @@
-const express = require ('express');
-const app =  express()
-const logger = require('./logger');
-const authorize = require('./authorize');
-const morgan = require('morgan');
-// 1 . use vs route
-// 2 . option - own / express /. third party
-app.use(morgan('tiny'))
-//app.use([logger,authorize])
-app.get('/', (req,res)=> {
-  res.send('Home ')
-})
+const express = require ('express')
+const app = express()
+//let { people} = require ('./2-express-tutorail/data')
+const people = require ('./2-express-tutorail/routes/people')
+const auth = require ('./2-express-tutorail/routes/auth')
+// static assets
+app.use(express.static('./2-express-tutorail/methods-public'))
+//parse from data
+app.use(express.urlencoded({ extended : false}))
+//parse Json
+app.use(express.json())
 
-app.get('/about',(req,res)=>{
-    res.send('About')
-})
-app.get('/api/products',(req,res)=>{
-    res.send('Products')
-})
-app.get('/api/items',(req,res)=>{
-    console.log(req.user)
-    res.send('Items')
-})
-app.listen(5000,()=>{
-    console.log('Sever is listening on port 5000.....')
+app.use('/api/people',people)
+app.use('/login', auth)
+
+
+
+app.listen(5000, ()=>{
+    console.log('Server is listening port 5000 .....')
 })
